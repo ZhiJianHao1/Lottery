@@ -1,11 +1,3 @@
-/.idea/
-/Lottery.iml
-/lottery-application/lottery-application.iml
-/lottery-common/lottery-common.iml
-/lottery-domain/lottery-domain.iml
-/lottery-infrastructure/lottery-infrastructure.iml
-/lottery-interfaces/lottery-interfaces.iml
-/lottery-rpc/lottery-rpc.iml
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
