@@ -18,7 +18,7 @@ public class Award {
     // 奖品名称
     private String awardName;
     // 奖品内容（文字描述、key、码）
-    private String awardContext;
+    private String awardContent;
     // 创建时间
     private Date createTime;
     // 修改时间
@@ -64,12 +64,12 @@ public class Award {
         this.awardName = awardName;
     }
 
-    public String getAwardContext() {
-        return awardContext;
+    public String getAwardContent() {
+        return awardContent;
     }
 
-    public void setAwardContext(String awardContext) {
-        this.awardContext = awardContext;
+    public void setAwardContent(String awardContent) {
+        this.awardContent = awardContent;
     }
 
     public Date getCreateTime() {
