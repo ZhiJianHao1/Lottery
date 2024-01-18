@@ -53,7 +53,7 @@ public class ApiTest {
 
     @Test
     public void test_select() {
-        Activity activity = activityDao.queryActivityId(100002L);
+        Activity activity = activityDao.queryActivityById(100002L);
         logger.info("测试结果：{}", JSON.toJSONString(activity));
     }
 

@@ -1,8 +1,7 @@
-package com.zhi.lottery.domain.award.repository.impl;
+package com.zhi.lottery.infrastructure.repository;
 
 import com.zhi.lottery.domain.award.repository.IAwardRepository;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 /**
  * @description: 奖品表仓储服务
