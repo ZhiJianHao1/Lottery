@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 @DBRouterStrategy(splitTable = true)
-public interface IUserStrategyExportDap {
+public interface IUserStrategyExportDao {
     /**
      * 新增数据
      * @param userStrategyExport 用户策略

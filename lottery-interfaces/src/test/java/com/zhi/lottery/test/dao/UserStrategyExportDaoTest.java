@@ -3,7 +3,7 @@ package com.zhi.lottery.test.dao;
 import com.alibaba.fastjson.JSON;
 import com.zhi.lottery.common.Constants;
 import com.zhi.lottery.domain.support.ids.IIdGenerator;
-import com.zhi.lottery.infrastructure.dao.IUserStrategyExportDap;
+import com.zhi.lottery.infrastructure.dao.IUserStrategyExportDao;
 import com.zhi.lottery.infrastructure.po.UserStrategyExport;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +23,7 @@ public class UserStrategyExportDaoTest {
     private Logger logger = LoggerFactory.getLogger(UserStrategyExportDaoTest.class);
 
     @Resource
-    private IUserStrategyExportDap userStrategyExportDao;
+    private IUserStrategyExportDao userStrategyExportDao;
 
     @Resource
     private Map<Constants.Ids, IIdGenerator> idGeneratorMap;

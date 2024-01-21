@@ -1,16 +1,11 @@
 package com.zhi.lottery.infrastructure.repository;
 
 import com.zhi.lottery.common.Constants;
+import com.zhi.lottery.domain.activity.model.req.PartakeReq;
 import com.zhi.lottery.domain.activity.model.vo.*;
 import com.zhi.lottery.domain.activity.repository.IActivityRepository;
-import com.zhi.lottery.infrastructure.dao.IActivityDao;
-import com.zhi.lottery.infrastructure.dao.IAwardDao;
-import com.zhi.lottery.infrastructure.dao.IStrategyDao;
-import com.zhi.lottery.infrastructure.dao.IStrategyDetailDao;
-import com.zhi.lottery.infrastructure.po.Activity;
-import com.zhi.lottery.infrastructure.po.Award;
-import com.zhi.lottery.infrastructure.po.Strategy;
-import com.zhi.lottery.infrastructure.po.StrategyDetail;
+import com.zhi.lottery.infrastructure.dao.*;
+import com.zhi.lottery.infrastructure.po.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
@@ -37,6 +32,8 @@ public class ActivityRepository implements IActivityRepository {
 
     @Resource
     private IStrategyDetailDao strategyDetailDao;
+    @Resource
+    private IUserTakeActivityCountDao userTakeActivityCountDao;
 
     @Override
     public void addActivity(ActivityVO activity) {
@@ -79,5 +76,38 @@ public class ActivityRepository implements IActivityRepository {
         AlterStateVO alterStateVO = new AlterStateVO(activityId, ((Constants.ActivityState) beforeState).getCode(),  ((Constants.ActivityState) afterState).getCode());
         int count = activityDao.alterState(alterStateVO);
         return count == 1;
+    }
+
+    @Override
+    public ActivityBillVO queryActivityBill(PartakeReq req) {
+
+        // 查询活动信息
+        Activity activity = activityDao.queryActivityById(req.getActivityId());
+        // 查询领取次数
+        UserTakeActivityCount userTakeActivityCountReq = new UserTakeActivityCount();
+        userTakeActivityCountReq.setuId(req.getuId());
+        userTakeActivityCountReq.setActivityId(req.getActivityId());
+        UserTakeActivityCount userTakeActivityCount = userTakeActivityCountDao.queryUserTakeActivityCount(userTakeActivityCountReq);
+
+        // 封装结果信息
+        ActivityBillVO activityBillVO = new ActivityBillVO();
+        activityBillVO.setuId(req.getuId());
+        activityBillVO.setActivityId(req.getActivityId());
+        activityBillVO.setActivityName(activity.getActivityName());
+        activityBillVO.setBeginDateTime(activity.getBeginDateTime());
+        activityBillVO.setEndDateTime(activity.getEndDateTime());
+        activityBillVO.setTakeCount(activity.getTakeCount());
+        activityBillVO.setStockSurplusCount(activity.getStockSurplusCount());
+        activityBillVO.setStrategyId(activity.getStrategyId());
+        activityBillVO.setState(activity.getState());
+        activityBillVO.setUserTakeLeftCount(null == userTakeActivityCount ? null : userTakeActivityCount.getLeftCount());
+
+        return activityBillVO;
+
+    }
+
+    @Override
+    public int subtractionActivityStock(Long activityId) {
+        return activityDao.subtractionActivityStock(activityId);
     }
 }
