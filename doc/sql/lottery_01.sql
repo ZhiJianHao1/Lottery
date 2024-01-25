@@ -1,5 +1,6 @@
 SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
+SET
+FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
 -- Table structure for user_strategy_export_000
@@ -190,3 +191,6 @@ BEGIN;
 INSERT INTO `user_take_activity_count`
 VALUES (1, 'Uhdgkw766120d', 100001, 10, 6, '2021-10-01 15:29:27', '2021-10-01 15:29:27');
 COMMIT;
+
+SET
+FOREIGN_KEY_CHECKS = 1;

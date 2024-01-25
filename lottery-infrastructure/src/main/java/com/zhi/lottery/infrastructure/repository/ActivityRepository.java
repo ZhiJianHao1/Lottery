@@ -7,7 +7,7 @@ import com.zhi.lottery.domain.activity.repository.IActivityRepository;
 import com.zhi.lottery.infrastructure.dao.*;
 import com.zhi.lottery.infrastructure.po.*;
 import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import java.util.List;
  * @author：zhijianhao
  * @date: 2024/1/18
  */
-@Component
+@Repository
 public class ActivityRepository implements IActivityRepository {
 
     @Resource

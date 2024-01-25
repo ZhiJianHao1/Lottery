@@ -10,7 +10,7 @@ import com.zhi.lottery.infrastructure.dao.IUserTakeActivityDao;
 import com.zhi.lottery.infrastructure.po.UserStrategyExport;
 import com.zhi.lottery.infrastructure.po.UserTakeActivity;
 import com.zhi.lottery.infrastructure.po.UserTakeActivityCount;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -20,7 +20,7 @@ import java.util.Date;
  * @author：zhijianhao
  * @date: 2024/1/20
  */
-@Component
+@Repository
 public class UserTakeActivityRepository implements IUserTakeActivityRepository {
 
     @Resource

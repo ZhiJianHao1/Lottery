@@ -5,6 +5,6 @@ package com.zhi.lottery.domain.award.repository;
  * @author：zhijianhao
  * @date: 2024/1/16
  */
-public interface IAwardRepository {
+public interface IOrderRepository {
     // TODO 对分库分表中的用户中奖纪录操作
 }
