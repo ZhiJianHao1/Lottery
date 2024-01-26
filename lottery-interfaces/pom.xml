@@ -91,6 +91,11 @@
         </dependency>
         <!-- MapStruct end -->
 
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
         <!-- 业务包 begin -->
         <dependency>
             <groupId>com.zhi.lottery</groupId>
