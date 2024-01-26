@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  * @author：zhijianhao
  * @date: 2024/1/25
  */
-@Service("RuleEngineHandler")
+@Service("ruleEngineHandler")
 public class RuleEngineHandler extends EngineBase {
     @Resource
     private IRuleRepository ruleRepository;

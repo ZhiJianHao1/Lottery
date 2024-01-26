@@ -1,7 +1,7 @@
 package com.zhi.lottery.application.process.res;
 
 import com.zhi.lottery.common.Result;
-import com.zhi.lottery.domain.strategy.model.vo.DrawAwardInfo;
+import com.zhi.lottery.domain.strategy.model.vo.DrawAwardVO;
 
 /**
  * @description: 活动抽奖结果
@@ -9,22 +9,22 @@ import com.zhi.lottery.domain.strategy.model.vo.DrawAwardInfo;
  * @date: 2024/1/24
  */
 public class DrawProcessResult extends Result {
-    private DrawAwardInfo drawAwardInfo;
+    private DrawAwardVO drawAwardVO;
 
     public DrawProcessResult(String code, String info) {
         super(code, info);
     }
 
-    public DrawProcessResult(String code, String info, DrawAwardInfo drawAwardInfo) {
+    public DrawProcessResult(String code, String info, DrawAwardVO drawAwardInfo) {
         super(code, info);
-        this.drawAwardInfo = drawAwardInfo;
+        this.drawAwardVO = drawAwardInfo;
     }
 
-    public DrawAwardInfo getDrawAwardInfo() {
-        return drawAwardInfo;
+    public DrawAwardVO getDrawAwardVO() {
+        return drawAwardVO;
     }
 
-    public void setDrawAwardInfo(DrawAwardInfo drawAwardInfo) {
-        this.drawAwardInfo = drawAwardInfo;
+    public void setDrawAwardVO(DrawAwardVO drawAwardVO) {
+        this.drawAwardVO = drawAwardVO;
     }
 }

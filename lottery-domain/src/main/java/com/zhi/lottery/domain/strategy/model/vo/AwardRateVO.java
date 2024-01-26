@@ -6,17 +6,17 @@ import java.math.BigDecimal;
  * @author zhijianhao
  * 奖品概率信息，奖品编号、库存、概率
  */
-public class AwardRateInfo {
+public class AwardRateVO {
     // 奖品ID
     private String awardId;
 
     // 中奖概率
     private BigDecimal awardRate;
 
-    public AwardRateInfo() {
+    public AwardRateVO() {
     }
 
-    public AwardRateInfo(String awardId, BigDecimal awardRate) {
+    public AwardRateVO(String awardId, BigDecimal awardRate) {
         this.awardId = awardId;
         this.awardRate = awardRate;
     }
@@ -35,5 +35,13 @@ public class AwardRateInfo {
 
     public void setAwardRate(BigDecimal awardRate) {
         this.awardRate = awardRate;
+    }
+
+    @Override
+    public String toString() {
+        return "AwardRateVO{" +
+                "awardId='" + awardId + '\'' +
+                ", awardRate=" + awardRate +
+                '}';
     }
 }
