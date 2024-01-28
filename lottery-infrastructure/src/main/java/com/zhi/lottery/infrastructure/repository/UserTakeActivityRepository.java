@@ -74,10 +74,10 @@ public class UserTakeActivityRepository implements IUserTakeActivityRepository {
     @Override
     public int lockTackActivity(String uId, Long activityId, Long takeId) {
         UserTakeActivity userTakeActivity = new UserTakeActivity();
-        userTakeActivity.setUuid(uId);
+        userTakeActivity.setuId(uId);
         userTakeActivity.setActivityId(activityId);
         userTakeActivity.setTakeId(takeId);
-        return userTakeActivityDao.lockTakeActivity(userTakeActivity);
+        return userTakeActivityDao.lockTackActivity(userTakeActivity);
     }
 
     @Override
@@ -103,7 +103,7 @@ public class UserTakeActivityRepository implements IUserTakeActivityRepository {
     @Override
     public UserTakeActivityVO queryNoConsumedTakeActivityOrder(Long activityId, String uId) {
         UserTakeActivity userTakeActivity = new UserTakeActivity();
-        userTakeActivity.setUuid(uId);
+        userTakeActivity.setuId(uId);
         userTakeActivity.setActivityId(activityId);
         UserTakeActivity noConsumedTakeActivityOrder = userTakeActivityDao.queryNoConsumedTakeActivityOrder(userTakeActivity);
 
@@ -115,9 +115,18 @@ public class UserTakeActivityRepository implements IUserTakeActivityRepository {
         UserTakeActivityVO userTakeActivityVO = new UserTakeActivityVO();
         userTakeActivityVO.setActivityId(noConsumedTakeActivityOrder.getActivityId());
         userTakeActivityVO.setTakeId(noConsumedTakeActivityOrder.getTakeId());
-        userTakeActivityVO.setStrategyId(userTakeActivityVO.getStrategyId());
+        userTakeActivityVO.setStrategyId(noConsumedTakeActivityOrder.getStrategyId());
         userTakeActivityVO.setState(noConsumedTakeActivityOrder.getState());
 
         return userTakeActivityVO;
+    }
+
+    @Override
+    public void updateInvoiceMqState(String uId, Long orderId, Integer mqState) {
+        UserStrategyExport userStrategyExport = new UserStrategyExport();
+        userStrategyExport.setuId(uId);
+        userStrategyExport.setOrderId(orderId);
+        userStrategyExport.setMqState(mqState);
+        userStrategyExportDao.updateInvoiceMqState(userStrategyExport);
     }
 }

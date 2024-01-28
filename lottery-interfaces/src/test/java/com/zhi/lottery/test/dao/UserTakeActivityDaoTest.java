@@ -1,5 +1,6 @@
 package com.zhi.lottery.test.dao;
 
+import com.alibaba.fastjson.JSON;
 import com.zhi.lottery.infrastructure.dao.IUserTakeActivityDao;
 import com.zhi.lottery.infrastructure.po.UserTakeActivity;
 import org.junit.Test;
@@ -33,6 +34,17 @@ public class UserTakeActivityDaoTest {
         userTakeActivity.setUuid("Uhdgkw766120d");
 
         userTakeActivityDao.insert(userTakeActivity);
+    }
+
+    @Test
+    public void test_select() {
+        UserTakeActivity userTakeActivity = new UserTakeActivity();
+        userTakeActivity.setuId("zhijianhao");
+        userTakeActivity.setActivityId(120981321L);
+
+        UserTakeActivity noConsumedTakeActivityOrder = userTakeActivityDao.queryNoConsumedTakeActivityOrder(userTakeActivity);
+
+        logger.info("测试结果：{}", JSON.toJSONString(noConsumedTakeActivityOrder));
     }
 
 }

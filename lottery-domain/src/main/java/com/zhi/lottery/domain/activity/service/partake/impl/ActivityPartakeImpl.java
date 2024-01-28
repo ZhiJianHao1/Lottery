@@ -31,10 +31,6 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
 
     @Resource
     private IUserTakeActivityRepository userTakeActivityRepository;
-
-    @Resource
-    private Map<Constants.Ids, IIdGenerator> idGeneratorMap;
-
     @Resource
     private TransactionTemplate transactionTemplate;
 
@@ -67,7 +63,7 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
         }
 
         // 校验：个人库存 - 个人活动剩余可领取次数
-        if (bill.getUserTakeLeftCount() <= 0) {
+        if (null != bill.getUserTakeLeftCount() && bill.getUserTakeLeftCount() <= 0) {
             logger.warn("个人领取次数非可用 userTakeLeftCount：{}", bill.getUserTakeLeftCount());
             return Result.buildResult(Constants.ResponseCode.UN_ERROR, "个人领取次数非可用");
         }
@@ -124,6 +120,9 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
                        logger.error("记录中奖单，个人参与活动抽奖已消耗完 activityId：{} uId：{}", drawOrder.getActivityId(), drawOrder.getuId());
                        return Result.buildResult(Constants.ResponseCode.NO_UPDATE);
                    }
+
+                   // 保存抽奖信息
+                   userTakeActivityRepository.saveUserStrategyExport(drawOrder);
                } catch (DuplicateKeyException e) {
                    status.setRollbackOnly();
                    logger.error("记录中奖单，唯一索引冲突 activityId：{} uId：{}", drawOrder.getActivityId(), drawOrder.getuId(), e);
@@ -134,5 +133,10 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
         } finally {
             dbRouter.clear();
         }
+    }
+
+    @Override
+    public void updateInvoiceMqState(String uId, Long orderId, Integer mqState) {
+        userTakeActivityRepository.updateInvoiceMqState(uId, orderId, mqState);
     }
 }

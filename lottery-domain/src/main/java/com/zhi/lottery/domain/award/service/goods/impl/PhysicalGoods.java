@@ -16,16 +16,12 @@ import org.springframework.stereotype.Component;
 public class PhysicalGoods extends DistributionBase implements IDistributionGoods {
     @Override
     public DistributionRes doDistribution(GoodsReq req) {
+        // 模拟调用实物发奖
+        logger.info("模拟调用实物发奖 uId：{} awardContent：{}", req.getuId(), req.getAwardContent());
 
-        logger.info("模拟调用实物发奖 uId：{} awardCount: {}", req.getuId(), req.getAwardContent());
-
-        super.updateUserAwardState(req.getuId(), req.getOrderId(), req.getAwardId(), Constants.AwardState.SUCCESS.getCode(), Constants.AwardState.SUCCESS.getInfo());
+        // 更新用户领奖结果
+        super.updateUserAwardState(req.getuId(), req.getOrderId(), req.getAwardId(), Constants.GrantState.COMPLETE.getCode());
 
         return new DistributionRes(req.getuId(), Constants.AwardState.SUCCESS.getCode(), Constants.AwardState.SUCCESS.getInfo());
-    }
-
-    @Override
-    public Integer getDistributionGoodsName() {
-        return Constants.AwardType.PhysicalGoods.getCode();
     }
 }

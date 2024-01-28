@@ -34,7 +34,7 @@ public abstract class BaseActivityPartake extends ActivityPartakeSupport impleme
 
         // 3. 活动信息校验处理【活动库存、状态、日期、个人参与次数】
         Result checkResult = this.checkActivityBill(req, activityBillVO);
-        if (Constants.ResponseCode.SUCCESS.getCode().equals(checkResult.getCode())) {
+        if (!Constants.ResponseCode.SUCCESS.getCode().equals(checkResult.getCode())) {
             return new PartakeResult(checkResult.getCode(), checkResult.getInfo());
         }
 
