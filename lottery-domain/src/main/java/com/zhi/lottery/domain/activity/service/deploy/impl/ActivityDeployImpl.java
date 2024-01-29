@@ -64,4 +64,9 @@ public class ActivityDeployImpl implements IActivityDeploy {
     public void updateActivity(ActivityConfigReq req) {
         // TODO 核心功能后续补充
     }
+
+    @Override
+    public List<ActivityVO> scanToDoActivityList(Long id) {
+        return activityRepository.scanToDoActivityList(id);
+    }
 }

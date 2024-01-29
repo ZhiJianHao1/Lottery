@@ -8,6 +8,7 @@ import java.util.Date;
  * @date: 2024/1/18
  */
 public class ActivityVO {
+    private Long id;
     // 活动Id
     private Long activityId;
     // 活动名称
@@ -26,6 +27,14 @@ public class ActivityVO {
     private Integer state;
     // 创建人
     private String creator;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getActivityId() {
         return activityId;
