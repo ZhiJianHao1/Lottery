@@ -4,13 +4,10 @@ import cn.bugstack.middleware.db.router.strategy.IDBRouterStrategy;
 import com.zhi.lottery.common.Constants;
 import com.zhi.lottery.common.Result;
 import com.zhi.lottery.domain.activity.model.req.PartakeReq;
-import com.zhi.lottery.domain.activity.model.vo.ActivityBillVO;
-import com.zhi.lottery.domain.activity.model.vo.DrawOrderVO;
-import com.zhi.lottery.domain.activity.model.vo.InvoiceVO;
-import com.zhi.lottery.domain.activity.model.vo.UserTakeActivityVO;
+import com.zhi.lottery.domain.activity.model.res.StockResult;
+import com.zhi.lottery.domain.activity.model.vo.*;
 import com.zhi.lottery.domain.activity.repository.IUserTakeActivityRepository;
 import com.zhi.lottery.domain.activity.service.partake.BaseActivityPartake;
-import com.zhi.lottery.domain.support.ids.IIdGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DuplicateKeyException;
@@ -80,6 +77,16 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
             return Result.buildResult(Constants.ResponseCode.NO_UPDATE);
         }
         return Result.buildSuccessResult();
+    }
+
+    @Override
+    protected StockResult subtractionActivityStockByRedis(String uId, Long activityId, Integer stockCount) {
+        return activityRepository.subtractionActivityStockByRedis(uId, activityId, stockCount);
+    }
+
+    @Override
+    protected void recoverActivityCacheStockByRedis(Long activityId, String tokenKey, String code) {
+        activityRepository.recoverActivityCacheStockByRedis(activityId, tokenKey, code);
     }
 
     @Override
@@ -154,5 +161,10 @@ public class ActivityPartakeImpl extends BaseActivityPartake {
         } finally {
             dbRouter.clear();
         }
+    }
+
+    @Override
+    public void updateActivityStock(ActivityPartakeRecordVO activityPartakeRecordVO) {
+        userTakeActivityRepository.updateActivityStock(activityPartakeRecordVO);
     }
 }

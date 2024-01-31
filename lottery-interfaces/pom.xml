@@ -41,12 +41,10 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.1.4</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.22</version>
         </dependency>
         <dependency>
             <groupId>cn.bugstack.middleware</groupId>
@@ -59,23 +57,19 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.8</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo</artifactId>
-            <version>2.7.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>2.7.1</version>
         </dependency>
 
         <!-- MapStruct begin -->
@@ -91,18 +85,18 @@
         </dependency>
         <!-- MapStruct end -->
 
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
         <!-- xxl-job-core https://github.com/xuxueli/xxl-job/-->
         <dependency>
             <groupId>com.xuxueli</groupId>
             <artifactId>xxl-job-core</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka</artifactId>
-        </dependency>
-
-        <!-- 业务包 begin -->
+        <!-- 业务包 begin-->
         <dependency>
             <groupId>com.zhi.lottery</groupId>
             <artifactId>lottery-infrastructure</artifactId>
@@ -123,7 +117,8 @@
             <artifactId>lottery-application</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- 业务包 end -->
+        <!-- 业务包 end-->
+
     </dependencies>
 
     <build>

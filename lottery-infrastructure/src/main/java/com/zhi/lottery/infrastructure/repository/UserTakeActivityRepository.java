@@ -1,13 +1,16 @@
 package com.zhi.lottery.infrastructure.repository;
 
 import com.zhi.lottery.common.Constants;
+import com.zhi.lottery.domain.activity.model.vo.ActivityPartakeRecordVO;
 import com.zhi.lottery.domain.activity.model.vo.DrawOrderVO;
 import com.zhi.lottery.domain.activity.model.vo.InvoiceVO;
 import com.zhi.lottery.domain.activity.model.vo.UserTakeActivityVO;
 import com.zhi.lottery.domain.activity.repository.IUserTakeActivityRepository;
+import com.zhi.lottery.infrastructure.dao.IActivityDao;
 import com.zhi.lottery.infrastructure.dao.IUserStrategyExportDao;
 import com.zhi.lottery.infrastructure.dao.IUserTakeActivityCountDao;
 import com.zhi.lottery.infrastructure.dao.IUserTakeActivityDao;
+import com.zhi.lottery.infrastructure.po.Activity;
 import com.zhi.lottery.infrastructure.po.UserStrategyExport;
 import com.zhi.lottery.infrastructure.po.UserTakeActivity;
 import com.zhi.lottery.infrastructure.po.UserTakeActivityCount;
@@ -25,6 +28,8 @@ import java.util.List;
  */
 @Repository
 public class UserTakeActivityRepository implements IUserTakeActivityRepository {
+    @Resource
+    private IActivityDao activityDao;
 
     @Resource
     private IUserTakeActivityCountDao userTakeActivityCountDao;
@@ -150,5 +155,13 @@ public class UserTakeActivityRepository implements IUserTakeActivityRepository {
         }
 
         return invoiceVOList;
+    }
+
+    @Override
+    public void updateActivityStock(ActivityPartakeRecordVO activityPartakeRecordVO) {
+        Activity activity = new Activity();
+        activity.setActivityId(activityPartakeRecordVO.getActivityId());
+        activity.setStockSurplusCount(activityPartakeRecordVO.getStockSurplusCount());
+        activityDao.updateActivityStock(activity);
     }
 }
