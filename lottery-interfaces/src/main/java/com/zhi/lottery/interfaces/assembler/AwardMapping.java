@@ -1,7 +1,7 @@
 package com.zhi.lottery.interfaces.assembler;
 
 import com.zhi.lottery.domain.strategy.model.vo.DrawAwardVO;
-import com.zhi.lottery.rpc.dto.AwardDTO;
+import com.zhi.lottery.rpc.booth.dto.AwardDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;

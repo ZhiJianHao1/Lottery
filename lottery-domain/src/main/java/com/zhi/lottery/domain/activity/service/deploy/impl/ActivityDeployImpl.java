@@ -2,7 +2,9 @@ package com.zhi.lottery.domain.activity.service.deploy.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.zhi.lottery.domain.activity.model.aggregates.ActivityConfigRich;
+import com.zhi.lottery.domain.activity.model.aggregates.ActivityInfoLimitPageRich;
 import com.zhi.lottery.domain.activity.model.req.ActivityConfigReq;
+import com.zhi.lottery.domain.activity.model.req.ActivityInfoLimitPageReq;
 import com.zhi.lottery.domain.activity.model.vo.ActivityVO;
 import com.zhi.lottery.domain.activity.model.vo.AwardVO;
 import com.zhi.lottery.domain.activity.model.vo.StrategyDetailVO;
@@ -68,5 +70,10 @@ public class ActivityDeployImpl implements IActivityDeploy {
     @Override
     public List<ActivityVO> scanToDoActivityList(Long id) {
         return activityRepository.scanToDoActivityList(id);
+    }
+
+    @Override
+    public ActivityInfoLimitPageRich queryActivityInfoLimitPage(ActivityInfoLimitPageReq req) {
+        return activityRepository.queryActivityInfoLimitPage(req);
     }
 }

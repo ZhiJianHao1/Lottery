@@ -1,13 +1,14 @@
-package com.zhi.lottery.domain.activity.model.vo;
+package com.zhi.lottery.rpc.deploy.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @description: 活动信息配置
+ * @description: 活动信息
  * @author：zhijianhao
- * @date: 2024/1/18
+ * @date: 2024/2/4
  */
-public class ActivityVO {
+public class ActivityDTO implements Serializable {
 
     /**
      * 自增ID
@@ -60,7 +61,7 @@ public class ActivityVO {
     private Long strategyId;
 
     /**
-     * 活动状态：编辑、提审、撤审、通过、运行、拒绝、关闭、开启
+     * 活动状态：1编辑、2提审、3撤审、4通过、5运行(审核通过后worker扫描状态)、6拒绝、7关闭、8开启
      */
     private Integer state;
 
@@ -193,7 +194,7 @@ public class ActivityVO {
 
     @Override
     public String toString() {
-        return "ActivityVO{" +
+        return "ActivityDTO{" +
                 "id=" + id +
                 ", activityId=" + activityId +
                 ", activityName='" + activityName + '\'' +

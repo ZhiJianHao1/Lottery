@@ -1,6 +1,8 @@
 package com.zhi.lottery.infrastructure.repository;
 
 import com.zhi.lottery.common.Constants;
+import com.zhi.lottery.domain.activity.model.aggregates.ActivityInfoLimitPageRich;
+import com.zhi.lottery.domain.activity.model.req.ActivityInfoLimitPageReq;
 import com.zhi.lottery.domain.activity.model.req.PartakeReq;
 import com.zhi.lottery.domain.activity.model.res.StockResult;
 import com.zhi.lottery.domain.activity.model.vo.*;
@@ -170,5 +172,20 @@ public class ActivityRepository implements IActivityRepository {
     @Override
     public void recoverActivityCacheStockByRedis(Long activityId, String tokenKey, String code) {
         redisUtil.del(tokenKey);
+    }
+
+    @Override
+    public ActivityInfoLimitPageRich queryActivityInfoLimitPage(ActivityInfoLimitPageReq req) {
+        Long count = activityDao.queryActivityInfoCount(req);
+        List<Activity> list = activityDao.queryActivityInfoList(req);
+        
+        List<ActivityVO> activityVOList = new ArrayList<>();
+        for (Activity activity : list) {
+            ActivityVO activityVO = new ActivityVO();
+            BeanUtils.copyProperties(activity, activityVO);
+            activityVOList.add(activityVO);
+        }
+
+        return new ActivityInfoLimitPageRich(count, activityVOList);
     }
 }

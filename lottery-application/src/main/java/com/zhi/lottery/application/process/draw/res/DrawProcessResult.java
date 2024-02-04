@@ -1,4 +1,4 @@
-package com.zhi.lottery.application.process.res;
+package com.zhi.lottery.application.process.draw.res;
 
 import com.zhi.lottery.common.Result;
 import com.zhi.lottery.domain.strategy.model.vo.DrawAwardVO;

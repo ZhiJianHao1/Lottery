@@ -42,8 +42,8 @@ public interface IMapping<SOURCE, TARGET> {
 
     /**
      * 反向，映射同名属性，集合形式
-     * @param var1  源
-     * @return      结果
+     * @param var1 源
+     * @return     结果
      */
     @InheritConfiguration(name = "targetToSource")
     List<SOURCE> targetToSource(List<TARGET> var1);
@@ -57,8 +57,8 @@ public interface IMapping<SOURCE, TARGET> {
 
     /**
      * 反向，映射同名属性，集合流形式
-     * @param stream    源
-     * @return          结果
+     * @param stream 源
+     * @return       结果
      */
     List<SOURCE> targetToSource(Stream<TARGET> stream);
 }

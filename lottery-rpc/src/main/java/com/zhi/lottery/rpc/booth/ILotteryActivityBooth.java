@@ -1,8 +1,8 @@
-package com.zhi.lottery.rpc;
+package com.zhi.lottery.rpc.booth;
 
-import com.zhi.lottery.rpc.req.DrawReq;
-import com.zhi.lottery.rpc.req.QuantificationDrawReq;
-import com.zhi.lottery.rpc.res.DrawRes;
+import com.zhi.lottery.rpc.booth.req.DrawReq;
+import com.zhi.lottery.rpc.booth.req.QuantificationDrawReq;
+import com.zhi.lottery.rpc.booth.res.DrawRes;
 
 /**
  * @description: 抽奖活动展台接口

@@ -1,22 +1,22 @@
 package com.zhi.lottery.interfaces.facade;
 
 import com.alibaba.fastjson.JSON;
-import com.zhi.lottery.application.process.IActivityProcess;
-import com.zhi.lottery.application.process.req.DrawProcessReq;
-import com.zhi.lottery.application.process.res.DrawProcessResult;
-import com.zhi.lottery.application.process.res.RuleQuantificationCrowdResult;
+import com.zhi.lottery.application.process.draw.IActivityProcess;
+import com.zhi.lottery.application.process.draw.req.DrawProcessReq;
+import com.zhi.lottery.application.process.draw.res.DrawProcessResult;
+import com.zhi.lottery.application.process.draw.res.RuleQuantificationCrowdResult;
 import com.zhi.lottery.common.Constants;
 import com.zhi.lottery.domain.rule.model.req.DecisionMatterReq;
 import com.zhi.lottery.domain.strategy.model.vo.DrawAwardVO;
 import com.zhi.lottery.interfaces.assembler.IMapping;
-import com.zhi.lottery.rpc.ILotteryActivityBooth;
-import com.zhi.lottery.rpc.dto.AwardDTO;
-import com.zhi.lottery.rpc.req.DrawReq;
-import com.zhi.lottery.rpc.req.QuantificationDrawReq;
-import com.zhi.lottery.rpc.res.DrawRes;
+import com.zhi.lottery.rpc.booth.ILotteryActivityBooth;
+import com.zhi.lottery.rpc.booth.dto.AwardDTO;
+import com.zhi.lottery.rpc.booth.req.DrawReq;
+import com.zhi.lottery.rpc.booth.req.QuantificationDrawReq;
+import com.zhi.lottery.rpc.booth.res.DrawRes;
+import org.apache.dubbo.config.annotation.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 
@@ -25,7 +25,7 @@ import javax.annotation.Resource;
  * @author：zhijianhao
  * @date: 2024/1/26
  */
-@Controller
+@Service
 public class LotteryActivityBooth implements ILotteryActivityBooth {
     private Logger logger = LoggerFactory.getLogger(LotteryActivityBooth.class);
 

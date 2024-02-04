@@ -1,4 +1,4 @@
-package com.zhi.lottery.application.process.req;
+package com.zhi.lottery.application.process.draw.req;
 
 /**
  * @description: 抽奖请求

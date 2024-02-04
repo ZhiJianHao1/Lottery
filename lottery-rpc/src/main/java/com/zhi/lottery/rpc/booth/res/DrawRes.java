@@ -1,7 +1,7 @@
-package com.zhi.lottery.rpc.res;
+package com.zhi.lottery.rpc.booth.res;
 
 import com.zhi.lottery.common.Result;
-import com.zhi.lottery.rpc.dto.AwardDTO;
+import com.zhi.lottery.rpc.booth.dto.AwardDTO;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.zhi.lottery.rpc.req;
+package com.zhi.lottery.rpc.booth.req;
 
 import java.util.Map;
 

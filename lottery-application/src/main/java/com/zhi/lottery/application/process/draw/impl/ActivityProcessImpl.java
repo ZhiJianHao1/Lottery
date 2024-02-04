@@ -1,10 +1,10 @@
-package com.zhi.lottery.application.process.impl;
+package com.zhi.lottery.application.process.draw.impl;
 
 import com.zhi.lottery.application.mq.producer.KafkaProducer;
-import com.zhi.lottery.application.process.IActivityProcess;
-import com.zhi.lottery.application.process.req.DrawProcessReq;
-import com.zhi.lottery.application.process.res.DrawProcessResult;
-import com.zhi.lottery.application.process.res.RuleQuantificationCrowdResult;
+import com.zhi.lottery.application.process.draw.IActivityProcess;
+import com.zhi.lottery.application.process.draw.req.DrawProcessReq;
+import com.zhi.lottery.application.process.draw.res.DrawProcessResult;
+import com.zhi.lottery.application.process.draw.res.RuleQuantificationCrowdResult;
 import com.zhi.lottery.common.Constants;
 import com.zhi.lottery.common.Result;
 import com.zhi.lottery.domain.activity.model.req.PartakeReq;

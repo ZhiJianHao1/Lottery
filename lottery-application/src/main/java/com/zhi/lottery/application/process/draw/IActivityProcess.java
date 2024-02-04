@@ -1,8 +1,8 @@
-package com.zhi.lottery.application.process;
+package com.zhi.lottery.application.process.draw;
 
-import com.zhi.lottery.application.process.req.DrawProcessReq;
-import com.zhi.lottery.application.process.res.DrawProcessResult;
-import com.zhi.lottery.application.process.res.RuleQuantificationCrowdResult;
+import com.zhi.lottery.application.process.draw.req.DrawProcessReq;
+import com.zhi.lottery.application.process.draw.res.DrawProcessResult;
+import com.zhi.lottery.application.process.draw.res.RuleQuantificationCrowdResult;
 import com.zhi.lottery.domain.rule.model.req.DecisionMatterReq;
 
 /**

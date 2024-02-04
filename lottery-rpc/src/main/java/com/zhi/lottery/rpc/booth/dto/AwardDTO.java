@@ -1,4 +1,4 @@
-package com.zhi.lottery.rpc.dto;
+package com.zhi.lottery.rpc.booth.dto;
 
 import java.io.Serializable;
 import java.util.Date;

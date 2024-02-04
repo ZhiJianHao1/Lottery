@@ -1,10 +1,10 @@
 package com.zhi.lottery.test.interfaces;
 
 import com.alibaba.fastjson.JSON;
-import com.zhi.lottery.rpc.ILotteryActivityBooth;
-import com.zhi.lottery.rpc.req.DrawReq;
-import com.zhi.lottery.rpc.req.QuantificationDrawReq;
-import com.zhi.lottery.rpc.res.DrawRes;
+import com.zhi.lottery.rpc.booth.ILotteryActivityBooth;
+import com.zhi.lottery.rpc.booth.req.DrawReq;
+import com.zhi.lottery.rpc.booth.req.QuantificationDrawReq;
+import com.zhi.lottery.rpc.booth.res.DrawRes;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

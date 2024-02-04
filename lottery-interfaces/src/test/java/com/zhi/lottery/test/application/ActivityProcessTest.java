@@ -2,9 +2,9 @@ package com.zhi.lottery.test.application;
 
 
 import com.alibaba.fastjson.JSON;
-import com.zhi.lottery.application.process.IActivityProcess;
-import com.zhi.lottery.application.process.req.DrawProcessReq;
-import com.zhi.lottery.application.process.res.DrawProcessResult;
+import com.zhi.lottery.application.process.draw.IActivityProcess;
+import com.zhi.lottery.application.process.draw.req.DrawProcessReq;
+import com.zhi.lottery.application.process.draw.res.DrawProcessResult;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
