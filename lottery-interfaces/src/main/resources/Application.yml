@@ -99,17 +99,25 @@ mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
   config-location:  classpath:/mybatis/config/mybatis-config.xml
 
-# Dubbo 广播方式配置
+# nacos 配置中心
+nacos:
+  discovery:
+    server-addr: 127.0.0.1:8848
+
+# Dubbo 广播方式配置，如果调用不稳定可以修改为直连模式：https://codechina.csdn.net/KnowledgePlanet/Lottery/-/issues/1
 dubbo:
   application:
     name: Lottery
     version: 1.0.0
-    paramters:
-      unicast: false
+#    parameters:
+#      unicast: false
   registry:
-    address: N/A #multicast://224.5.6.7:1234
+#    address: N/A
+#    address: #multicast://224.5.6.7:1234
+#    address: zookeeper://127.0.0.1:2181
+    address: nacos://127.0.0.1:8848
   protocol:
     name: dubbo
-    port: 20880
+    port: -1
   scan:
     base-packages: com.zhi.lottery.rpc.*
